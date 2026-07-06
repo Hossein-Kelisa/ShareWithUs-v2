@@ -8,6 +8,15 @@ const app = express();
 // Tell express to use the json middleware
 app.use(express.json());
 
+// Health check endpoint
+app.get("/api/health", (req, res) => {
+  res.status(200).json({
+    status: "ok",
+    message: "Backend is running",
+    timestamp: new Date().toISOString(),
+  });
+});
+
 /****** Attach routes ******/
 /**
  * We use /api/ at the start of every route!
