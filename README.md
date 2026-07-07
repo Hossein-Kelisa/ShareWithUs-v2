@@ -1,141 +1,207 @@
-![ShareWithUs](<Screenshot-2025-07-02-150025.png>)
-![ShareWithUs](<Screenshot-2025-07-04-090032.png>)
+# ShareWithUs
 
-# Cohort 51 final project - ShareWithUs
+**ShareWithUs** is a full-stack web application that enables people to share, borrow, and manage everyday items within their community. The platform encourages sustainable sharing by making it easy to lend unused items instead of purchasing new ones.
 
-This is the final project for the HackYourFuture curriculum we did as a cohort using the [MERN stack](https://www.mongodb.com/resources/languages/mern-stack) by following the agile methodology with our team and a group of mentors. A quick guide to what we built:
+Originally developed as the final group project during the **HackYourFuture Web Development Program**, this repository is now independently maintained, deployed, and improved by **Hossein Kelisa**.
 
+## 🌐 Live Demo
 
-### 📝 Description
+**Application:** https://sharewithus2.netlify.app/
 
-ShareWhitUs is a full-stack web application that helps users to borrow and lend items within their community. Users can register, log in, add items, search, filter by category, and borrow items.
+**Repository:** https://github.com/Hossein-Kelisa/ShareWithUs-v2
 
-Main features:
-- Login & Registration
-- Browse and filter items
-- Add and edit your own items
-- Borrow and return items
-- Leave reviews with rating
-- Contact item owners
-- Cloud image uploads using Cloudinary
+---
 
+## 📖 Project Overview
 
-### 📦 Tech Stack
+ShareWithUs provides a simple and secure way for community members to share resources.
 
-- **Frontend:** React, React Router, CSS
-- **Backend:** Node.js, Express
-- **Database:** MongoDB + Mongoose
-- **Image Upload:** Cloudinary
-- **Authentication:** Token-based (JWT)
+Visitors can browse available items without creating an account, while registered users can upload items, borrow available items, manage their profile, and leave reviews.
 
-[Click here for the Demo version](https://hyf-c51-grou-feature-re-4kuggz.herokuapp.com/)
+The application follows a modern full-stack architecture using React, Node.js, Express, MongoDB Atlas, JWT authentication, Cloudinary for image storage, Render for backend hosting, and Netlify for frontend deployment.
 
-## 1. Setup
+---
 
-First, to setup all the directories run the following in the main directory:
+## ✨ Features
 
-`npm install`
+### Public Features
 
-`npm run setup`
+* Browse all available items
+* Search items
+* Filter by category
+* View item details
+* Read reviews
+* Responsive interface
 
-The first command will install `cypress` and some small libraries needed for running the rest of the commands. The second will go into the `client` and `server` directories and set those up to be ran.
+### Authenticated Features
 
-In the `client` and `server` directory there are two `.env.example` files. Create a copy and rename that to `.env`. Then follow the instructions in those files to fill in the right values.
+* User registration and login
+* JWT authentication
+* Share new items with images
+* Upload images using Cloudinary
+* Borrow available items
+* View borrowed items
+* View shared items
+* Manage personal profile
 
-To run the app in dev mode you can run the following command in the main directory:
+---
 
-`npm run dev`
+## 🛠️ Tech Stack
 
-## 2. Code structure
+### Frontend
+
+* React
+* Vite
+* React Router
+* CSS
+* Fetch API
+
+### Backend
+
+* Node.js
+* Express.js
+* MongoDB Atlas
+* Mongoose
+* JWT Authentication
+
+### Cloud Services
+
+* Netlify
+* Render
+* Cloudinary
+
+### Development Tools
+
+* Git
+* GitHub
+* ESLint
+* Prettier
+* Jest
+
+---
+
+## 🏗️ Architecture
 
 ```
-client
-├── public
-└── src
-|   └── __tests__
-|   └── __testUtils__
-|   └── components
-|   └── hooks
-|   └── pages
-|       └── __tests__
-|       └── components
-|   └── util
-|   index.jsx
-cypress
-|   └── fixtures
-|   └── integration
-|   └── plugins
-|   └── support
-server
-└── src
-    └── __tests__
-    └── __testUtils__
-    └── controllers
-    └── db
-    └── models
-    └── routes
-    └── util
-    index.js
+React (Netlify)
+        │
+        ▼
+Netlify Redirects
+        │
+        ▼
+Express API (Render)
+        │
+        ▼
+MongoDB Atlas
+        │
+        ├──────────────► Cloudinary
+        │                  (Image Storage)
+        ▼
+JWT Authentication
 ```
 
-### 2.1 Client structure
+---
 
-- `public` || public facing client code
-- `__tests__` || any `jest` tests for specific components will be in a `__tests__` folder on the same level
-- `__testUtils__` || any code that is only being used in the tests is put in the `__testUtils__` folder to separate that away from the rest of the code
-- `components` || all of our shared components that are used over multiple pages
-- `hooks` || all of our custom hooks
-- `pages` || the page components of our app, any routing will go between these components
-- `pages/components` || components used specifically on those pages
-- `util` || any utility functions that can be used anywhere on the client side
-- `main.jsx` || the start point of the client
-- `vite.config.js` || to configure vite
+## 📂 Project Structure
 
-### 2.2 Cypress structure
+```
+ShareWithUs-v2
+│
+├── client
+│   ├── src
+│   ├── public
+│   └── vite.config.js
+│
+├── server
+│   ├── src
+│   │   ├── controllers
+│   │   ├── routes
+│   │   ├── models
+│   │   ├── db
+│   │   └── util
+│   └── package.json
+│
+└── README.md
+```
 
-- `fixtures` || any data/files that `cypress` needs can be placed here
-- `integration` || all of our tests are in here, separated in folders based on the pages in our app
-- `plugins` || any plugins for our `cypress` configuration can be placed here
-- `support` || custom commands and other support files for `cypress` can be placed here
+---
 
-### 2.3 Server structure
+## 🚀 Getting Started
 
-- `__tests__` || any `jest` tests for the api endpoints as that is our testing strategy for the backend
-- `__testUtils__` || any code that is only being used in the tests is put in the `__testUtils__` folder to separate that away from the rest of the code
-- `controllers` || all of our controller functions that interact with the database
-- `db` || all of our configuration for the database
-- `models` || all of our `mongoose` models will be placed here
-- `routes` || code to match up the API with our controllers
-- `util` || any utility functions that can be used anywhere on the server side
-- `index.js` || the start point of the server
+Clone the repository:
 
-## 3. Stack / external libraries
+```bash
+git clone https://github.com/Hossein-Kelisa/ShareWithUs-v2.git
+```
 
-The base stack of the app is a MERN stack (Mongoose, Express, React, Node). Next to that we make use of the following extras:
+Install dependencies:
 
-### 3.1 Configuration libraries
+```bash
+npm install
+npm run setup
+```
 
-- `dotenv` || To load the .env variables into the process environment. See [docs](https://www.npmjs.com/package/dotenv)
-- `vite` || To bundle our React app and create a static app to host. See [docs](https://vite.dev/)
-- `husky` || To run our tests and linter before committing. See [docs](https://typicode.github.io/husky/#/)
-- `eslint` || To check our code. We have different configurations for frontend and backend. You can check out the configuration in the `.eslintrc.(c)js` files in the respective `client` and `server` folders. See [docs](https://eslint.org/)
-- `prettier` || To automatically format our code. See [docs](https://prettier.io/)
-- `concurrently` || To run commands in parallel. See [docs](https://github.com/open-cli-tools/concurrently#readme)
+Create the required `.env` files inside both the `client` and `server` folders.
 
-For more information on how these work together including the automatic deployment to heroku, have a look at our detailed [DEV](./DEV.md) file.
+Start the development environment:
 
-### 3.2 Client-side libraries
+```bash
+npm run dev
+```
 
-- `@testing-library/*` || We use React Testing Library to write all of our tests. See [docs](https://testing-library.com/docs/react-testing-library/intro/)
-- `jest` || To run our tests and coverage. See [docs](https://jestjs.io/)
-- `jest-fetch-mock` || To mock out the backend for our testing purposes. See [docs](https://github.com/jefflau/jest-fetch-mock#readme)
-- `prop-types` || To type-check our components. See [docs](https://github.com/facebook/prop-types)
+---
 
-### 3.3 Server-side libraries
+## ☁️ Deployment
 
-- `nodemon` || To automatically restart the server when in development mode. See [docs](https://nodemon.io/)
-- `jest` || To run our tests and coverage. See [docs](https://jestjs.io/)
-- `supertest` || To more easily test our endpoints. See [docs](https://github.com/visionmedia/supertest#readme)
-- `mongodb-memory-server` || To mock out our database in our backend tests. See [docs](https://github.com/nodkz/mongodb-memory-server)
-- `cors` || To open up our API. See [docs](https://github.com/expressjs/cors#readme)
-- `mongoose` || To add schemas to our database. See [docs](https://mongoosejs.com/)
+### Frontend
+
+* Hosted on **Netlify**
+
+### Backend
+
+* Hosted on **Render**
+
+### Database
+
+* MongoDB Atlas
+
+### Image Storage
+
+* Cloudinary
+
+---
+
+## 📸 Screenshots
+
+Screenshots will be added soon.
+
+---
+
+## 🚀 Future Improvements
+
+* Better loading experience while the backend wakes up on Render Free
+* Improved health monitoring endpoint
+* Email notifications
+* Item reservation requests
+* Real-time notifications
+* Admin dashboard
+* Dark mode
+* Progressive Web App (PWA)
+
+---
+
+## 🙏 Acknowledgements
+
+This project was originally created as the final team project of the **HackYourFuture Web Development Program**.
+
+The current repository is independently maintained, deployed, and continuously improved by **Hossein Kelisa**.
+
+---
+
+## 👨‍💻 Author
+
+**Hossein Kelisa**
+
+GitHub: https://github.com/Hossein-Kelisa
+
+LinkedIn: https://www.linkedin.com/in/hossein-kelisa/
